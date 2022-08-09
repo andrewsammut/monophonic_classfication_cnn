@@ -85,7 +85,7 @@ def sd_callback(rec, frames, time, status):
     
     if val > word_threshold:
         print('stop')
-        #GPIO.output(led_pin, GPIO.HIGH)
+        GPIO.output(led_pin, GPIO.HIGH)
 
     if debug_acc:
         print(val)
