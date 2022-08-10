@@ -3,12 +3,12 @@ Connect a resistor and LED to board pin 8 and run this script.
 Whenever you say "stop", the LED should flash briefly
 """
 
-import sounddevice as sd
+#import sounddevice as sd
 import numpy as np
 import scipy.signal
-import timeit
+#import timeit
 import python_speech_features
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 
 from tflite_runtime.interpreter import Interpreter
 
@@ -23,7 +23,7 @@ sample_rate = 44100
 resample_rate = 8000
 num_channels = 1
 num_mfcc = 16
-model_path = 'wake_word_stop_lite.tflite'
+model_path = 'AudioModel_lite.tflite'
 
 # Sliding window
 window = np.zeros(int(rec_duration * sample_rate) * 2)
@@ -94,9 +94,9 @@ def sd_callback(rec, frames, time, status):
         print(timeit.default_timer() - start)
 
 # Start streaming from microphone
-with sd.InputStream(channels=num_channels,
-                    samplerate=sample_rate,
-                    blocksize=int(sample_rate * rec_duration),
-                    callback=sd_callback):
+#with sd.InputStream(channels=num_channels,
+#                    samplerate=sample_rate,
+#                    blocksize=int(sample_rate * rec_duration),
+#                    callback=sd_callback):
     while True:
         pass
